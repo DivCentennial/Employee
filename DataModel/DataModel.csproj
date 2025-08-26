@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AssemblyName>MariApps.MS.Purchase.MSA.Employee.$(MSBuildProjectName)</AssemblyName>
+		<RootNamespace>MariApps.MS.Purchase.MSA.Employee.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="DbParameterMappers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MariApps.Framework.DataAccess" Version="10.0.49.1" />
+  </ItemGroup>
+  
+</Project>

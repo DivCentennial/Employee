@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AssemblyName>MariApps.MS.Purchase.MSA.Employee.$(MSBuildProjectName)</AssemblyName>
+		<RootNamespace>MariApps.MS.Purchase.MSA.Employee.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+	</PropertyGroup>
+</Project>

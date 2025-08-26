@@ -1,0 +1,85 @@
+{
+  "UserId": "1",
+  "UserName": "User One",
+  "Email": "user1@example.com",
+  "DefaultCompanyId": 1,
+  "VesselIds": [ 3, 6, 9 ],
+  "Roles": [
+    {
+      "Name": "Role1",
+      "Policies": [
+        {
+          "Type": "Type1",
+          "Name": "Policy1"
+        }
+      ],
+      "Claims": [
+        {
+          "Name": "VesselId",
+          "Value": "3"
+        }
+      ]
+    }
+  ],
+  "Policies": [
+    {
+      "Type": "ActionPolicy",
+      "Name": "AllowUserAccessForGettingAllTheCountries"
+    },
+    {
+      "Type": "ActionPolicy",
+      "Name": "GetCountry_USA"
+    },
+    {
+      "Type": "RoutePolicy",
+      "Name": "AllowUserAccessForGettingAllTheCountries",
+      "Route": "/Countries",
+      "Verb": "Get",
+      "Action": "Alow"
+    },
+    {
+      "Type": "RoutePolicy",
+      "Name": "DenyUserAccessForCreatingNewCountry",
+      "Route": "/Countries",
+      "Verb": "POST",
+      "Action": "Deny"
+    },
+    {
+      "Type": "RoutePolicy",
+      "Name": "AllowUserAccessForGettingASpecificCountry",
+      "Route": "/Countries/{ID}",
+      "Verb": "POST",
+      "Action": "Allow"
+    },
+    {
+      "Type": "BLPolicy",
+      "ParentPolicyName": "AllowUserAccessForGettingAllTheCountries",
+      "Name": "MDM:CuntrySLL:MaskCountryUSCode",
+      "BLType": "GDPRGuard",
+      "BLConfig": {
+        "MaskConfig": {
+          "JSONPaths": [ "[1].code" ]
+        }
+
+      }
+    }
+  ],
+  "Claims": [
+    {
+      "Name": "VesselId",
+      "Value": "3"
+    },
+    {
+      "Name": "VesselId",
+      "Value": "6"
+    },
+    {
+      "Name": "VesselId",
+      "Value": "9"
+    },
+    {
+      "Name": "CompanyId",
+      "Value": "1"
+    }
+  ]
+} 
