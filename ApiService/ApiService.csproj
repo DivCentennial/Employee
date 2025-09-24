@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="MariApps.Framework.MS.Core" Version="10.0.100.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
   </ItemGroup>
 
    <ItemGroup>

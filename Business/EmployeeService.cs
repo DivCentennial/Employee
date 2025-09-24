@@ -11,6 +11,7 @@ namespace MariApps.MS.Purchase.MSA.Employee.Business
     public class EmployeeService : IEmployeeService
     {
         private readonly IEmployeeRepository _repository;
+        // Removed complex inter-service communication - now handled directly in Controller
         private readonly ILogger<EmployeeService> _logger;
 
         public EmployeeService(IEmployeeRepository repository, ILogger<EmployeeService> logger)
@@ -55,5 +56,7 @@ namespace MariApps.MS.Purchase.MSA.Employee.Business
         {
             await _repository.DeleteEmployeeAsync(id);
         }
+
+        // Simple CRUD operations only - inter-service communication handled in Controller
     }
 }
