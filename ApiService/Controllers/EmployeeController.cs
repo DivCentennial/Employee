@@ -85,27 +85,27 @@ namespace MariApps.MS.Purchase.MSA.Employee.Api.Controllers
         {
             try
             {
-
-                /* // Get employees from Employee service
-                 var employees = await _employeeService.GetAllEmployeesAsync();
-
-                 // Call Department API with automatic Hard-Token header injection
-                 Console.WriteLine($"Calling Department API with Hard-Token header...");
-                 var response = await _departmentClient.GetAsync("");
-                 Console.WriteLine($"Department API response status: {response.StatusCode}");
-                 if (!response.IsSuccessStatusCode)
-                 {
-                     var errorContent = await response.Content.ReadAsStringAsync();
-                     Console.WriteLine($"Department API error: {errorContent}");
-                     return StatusCode((int)response.StatusCode, errorContent);
-                 }
-                 var deptResponse = await response.Content.ReadAsStringAsync();
-                 var departments = JsonSerializer.Deserialize<List<DepartmentInfo>>(deptResponse, new JsonSerializerOptions
-                 {
-                     PropertyNameCaseInsensitive = true
-                 });*/
-
+                //AUTOMATIC
                 // Get employees from Employee service
+                var employees = await _employeeService.GetAllEmployeesAsync();
+
+                // Call Department API with automatic Hard-Token header injection
+                Console.WriteLine($"Calling Department API with Hard-Token header...");
+                var response = await _departmentClient.GetAsync("");
+                Console.WriteLine($"Department API response status: {response.StatusCode}");
+                if (!response.IsSuccessStatusCode)
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Department API error: {errorContent}");
+                    return StatusCode((int)response.StatusCode, errorContent);
+                }
+                var deptResponse = await response.Content.ReadAsStringAsync();
+                var departments = JsonSerializer.Deserialize<List<DepartmentInfo>>(deptResponse, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+                ///MANUAL 
+               /* // Get employees from Employee service
                 var employees = await _employeeService.GetAllEmployeesAsync();
 
                 // Get Hard-Token from request headers
@@ -135,7 +135,7 @@ namespace MariApps.MS.Purchase.MSA.Employee.Api.Controllers
                 var departments = JsonSerializer.Deserialize<List<DepartmentInfo>>(deptResponse, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
-                });
+                });*/
 
                 // Join employee with department name
                 var result = from e in employees
